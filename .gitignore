@@ -3,4 +3,7 @@
 /states/
 /target/
 /out/
+/.classpath
+/.project
+/.settings/
 setEnv.sh
