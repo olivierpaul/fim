@@ -18,7 +18,6 @@
  */
 package org.fim.internal.hash;
 
-import com.blackducksoftware.tools.commonframework.core.encoding.Ascii85Encoder;
 import com.google.common.hash.HashCode;
 import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
@@ -28,6 +27,7 @@ import org.fim.model.HashMode;
 import org.fim.model.Range;
 import org.fim.tooling.RepositoryTool;
 import org.fim.tooling.StateAssert;
+import org.fim.util.Ascii85Encoder;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;

@@ -1,3 +1,6 @@
+.vscode/
 /classes/
 /states/
+/target/
 /out/
+setEnv.sh

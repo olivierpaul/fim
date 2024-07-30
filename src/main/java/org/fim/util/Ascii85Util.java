@@ -18,8 +18,6 @@
  */
 package org.fim.util;
 
-import com.blackducksoftware.tools.commonframework.core.encoding.Ascii85Encoder;
-
 import java.nio.charset.Charset;
 
 public class Ascii85Util {
