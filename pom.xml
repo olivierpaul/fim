@@ -31,12 +31,12 @@
         <commons-codec.version>1.17.1</commons-codec.version>
         <commons-io.version>2.16.1</commons-io.version>
         <jackson-databind.version>2.17.2</jackson-databind.version>
-        <cloning.version>1.9.12</cloning.version>
+        <cloning.version>1.10.3</cloning.version>
         <evo-inflector.version>1.3</evo-inflector.version>
 
         <junit.version>4.13.2</junit.version>
         <assertj-core.version>3.26.3</assertj-core.version>
-        <mockito-all.version>1.10.19</mockito-all.version>
+        <mockito.version>4.11.0</mockito.version>
         <system-rules.version>1.19.0</system-rules.version>
 
         <!-- Plugins -->
@@ -138,7 +138,7 @@
             <version>${jackson-databind.version}</version>
         </dependency>
         <dependency>
-            <groupId>uk.com.robust-it</groupId>
+            <groupId>io.github.kostaskougios</groupId>
             <artifactId>cloning</artifactId>
             <version>${cloning.version}</version>
         </dependency>
@@ -162,8 +162,8 @@
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-            <version>${mockito-all.version}</version>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
