@@ -200,8 +200,9 @@ public class DuplicateResult {
     }
 
     private String readInputLine() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine();
+        try (Scanner scanner = new Scanner(System.in)) {
+            return scanner.nextLine();
+        }
     }
 
     private int safeParseInt(String answer) {

@@ -26,11 +26,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.nio.file.Path;
 
 public class FindDuplicatesCommandTest {
     private RepositoryTool tool;
-    private Path rootDir;
     private Context context;
 
     private FindDuplicatesCommand findDuplicatesCommand;
@@ -38,7 +36,6 @@ public class FindDuplicatesCommandTest {
     @Before
     public void setUp() throws IOException {
         tool = new RepositoryTool(this.getClass());
-        rootDir = tool.getRootDir();
         context = tool.getContext();
 
         findDuplicatesCommand = new FindDuplicatesCommand();

@@ -53,7 +53,6 @@ public class StateManagerTest extends StateAssert {
 
     private StateManager cut;
     private RepositoryTool tool;
-    private Path rootDir;
 
     public StateManagerTest(final HashMode hashMode) {
         this.hashMode = hashMode;
@@ -72,7 +71,6 @@ public class StateManagerTest extends StateAssert {
     @Before
     public void setUp() throws IOException {
         tool = new RepositoryTool(this.getClass(), hashMode);
-        rootDir = tool.getRootDir();
         context = tool.getContext();
 
         Path statesDir = context.getRepositoryStatesDir();
