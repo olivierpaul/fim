@@ -26,7 +26,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.nio.file.Path;
 
 import static org.apache.commons.lang3.SystemUtils.IS_OS_WINDOWS;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -37,13 +36,11 @@ public class ResetFileAttrsCommandTest {
     private ResetFileAttributesCommand resetFileAttributesCommand;
 
     private RepositoryTool tool;
-    private Path rootDir;
     private Context context;
 
     @Before
     public void setUp() throws IOException {
         tool = new RepositoryTool(this.getClass());
-        rootDir = tool.getRootDir();
         context = tool.getContext();
 
         initCommand = new InitCommand();
