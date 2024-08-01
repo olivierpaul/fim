@@ -21,7 +21,7 @@
         <slides.output.directory>${project.build.directory}/slides</slides.output.directory>
 
         <!-- versions -->
-        <java.version>1.8</java.version>
+        <java.version>11</java.version>
 
         <guava.version>33.2.1-jre</guava.version>
         <gson.version>2.11.0</gson.version>
@@ -31,7 +31,8 @@
         <commons-codec.version>1.17.1</commons-codec.version>
         <commons-io.version>2.16.1</commons-io.version>
         <jackson-databind.version>2.17.2</jackson-databind.version>
-        <cloning.version>1.10.3</cloning.version>
+        <!-- Version not published on maven repository actually. You need to "mvn install" it yourself -->
+        <cloning.version>1.11.0</cloning.version>
         <evo-inflector.version>1.3</evo-inflector.version>
 
         <junit.version>4.13.2</junit.version>
@@ -245,6 +246,7 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <argLine>-Xmx2g -XX:MaxMetaspaceSize=128m</argLine>
+                    <!-- argLine>- -add-opens java.base/java.util=ALL-UNNAMED - -add-opens java.base/java.lang=ALL-UNNAMED - -add-opens java.base/sun.nio.fs=ALL-UNNAMED - -add-opens java.base/java.nio.file.spi=ALL-UNNAMED - -illegal-access=permit -Xmx2g -XX:MaxMetaspaceSize=128m</argLine -->
                 </configuration>
             </plugin>
 

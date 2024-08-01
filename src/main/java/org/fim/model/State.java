@@ -30,13 +30,13 @@ import org.fim.util.FileUtil;
 import org.fim.util.JsonIO;
 import org.fim.util.Logger;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -49,7 +49,6 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
 import static org.fim.model.HashMode.hashAll;
-import static org.fim.util.Ascii85Util.UTF8;
 
 public class State implements Hashable {
     public static final String CURRENT_MODEL_VERSION = "5";
@@ -86,7 +85,8 @@ public class State implements Hashable {
     }
 
     public static State loadFromGZipFile(Path stateFile, boolean loadFullState) throws IOException, CorruptedStateException {
-        try (Reader reader = new InputStreamReader(new GZIPInputStream(new FileInputStream(stateFile.toFile())), UTF8)) {
+//        try (Reader reader = new InputStreamReader(new GZIPInputStream(new FileInputStream(stateFile.toFile())), UTF8)) {
+        try (Reader reader = new InputStreamReader(new GZIPInputStream(Files.newInputStream(stateFile, StandardOpenOption.READ)))) {
             State state = jsonIO.getObjectMapper().readValue(reader, State.class);
             System.gc(); // Force to cleanup unused memory
 
@@ -119,7 +119,8 @@ public class State implements Hashable {
         updateFilesContentLength();
         stateHash = hashState();
 
-        try (Writer writer = new OutputStreamWriter(new GZIPOutputStream(new FileOutputStream(stateFile.toFile())), UTF8)) {
+//        try (Writer writer = new OutputStreamWriter(new GZIPOutputStream(new FileOutputStream(stateFile.toFile())), UTF8)) {
+        try (Writer writer = new OutputStreamWriter(new GZIPOutputStream(Files.newOutputStream(stateFile, StandardOpenOption.CREATE)))) {
             jsonIO.getObjectWriter().writeValue(writer, this);
         }
         System.gc(); // Force to cleanup unused memory
