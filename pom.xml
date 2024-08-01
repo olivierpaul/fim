@@ -246,7 +246,6 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <argLine>-Xmx2g -XX:MaxMetaspaceSize=128m</argLine>
-                    <!-- argLine>- -add-opens java.base/java.util=ALL-UNNAMED - -add-opens java.base/java.lang=ALL-UNNAMED - -add-opens java.base/sun.nio.fs=ALL-UNNAMED - -add-opens java.base/java.nio.file.spi=ALL-UNNAMED - -illegal-access=permit -Xmx2g -XX:MaxMetaspaceSize=128m</argLine -->
                 </configuration>
             </plugin>
 
