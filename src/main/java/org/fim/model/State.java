@@ -85,7 +85,6 @@ public class State implements Hashable {
     }
 
     public static State loadFromGZipFile(Path stateFile, boolean loadFullState) throws IOException, CorruptedStateException {
-//        try (Reader reader = new InputStreamReader(new GZIPInputStream(new FileInputStream(stateFile.toFile())), UTF8)) {
         try (Reader reader = new InputStreamReader(new GZIPInputStream(Files.newInputStream(stateFile, StandardOpenOption.READ)))) {
             State state = jsonIO.getObjectMapper().readValue(reader, State.class);
             System.gc(); // Force to cleanup unused memory
@@ -119,7 +118,6 @@ public class State implements Hashable {
         updateFilesContentLength();
         stateHash = hashState();
 
-//        try (Writer writer = new OutputStreamWriter(new GZIPOutputStream(new FileOutputStream(stateFile.toFile())), UTF8)) {
         try (Writer writer = new OutputStreamWriter(new GZIPOutputStream(Files.newOutputStream(stateFile, StandardOpenOption.CREATE)))) {
             jsonIO.getObjectWriter().writeValue(writer, this);
         }

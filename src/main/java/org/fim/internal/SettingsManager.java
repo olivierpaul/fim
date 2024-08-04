@@ -58,7 +58,6 @@ public class SettingsManager {
     }
 
     private void load() {
-//        try (Reader reader = new InputStreamReader(new FileInputStream(settingsFile.toFile()))) {
         try (Reader reader = new InputStreamReader(Files.newInputStream(settingsFile, StandardOpenOption.READ))) {
             Gson gson = new Gson();
             settings = gson.fromJson(reader, Settings.class);
@@ -68,7 +67,6 @@ public class SettingsManager {
     }
 
     public void save() {
-//        try (Writer writer = new OutputStreamWriter(new FileOutputStream(settingsFile.toFile()))) {
         try (Writer writer = new OutputStreamWriter(Files.newOutputStream(settingsFile, StandardOpenOption.CREATE))) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             gson.toJson(settings, writer);
