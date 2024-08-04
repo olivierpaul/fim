@@ -91,7 +91,7 @@ public class FileHasherPerformanceTest extends StateAssert {
     public void hashFiles() throws IOException {
         long start = System.currentTimeMillis();
 
-        List<FileHash> allHash = new ArrayList();
+        List<FileHash> allHash = new ArrayList<>();
         for (int fileCount = 0; fileCount < TOTAL_FILE_CONT; fileCount++) {
             Path fileToHash = context.getRepositoryRootDir().resolve("file_" + fileCount);
             allHash.add(cut.hashFile(fileToHash, Files.size(fileToHash)));

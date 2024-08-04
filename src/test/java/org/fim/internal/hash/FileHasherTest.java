@@ -68,7 +68,6 @@ import static org.fim.tooling.TestConstants._512_KB;
 import static org.fim.tooling.TestConstants._60_MB;
 import static org.fim.tooling.TestConstants._6_KB;
 import static org.fim.tooling.TestConstants._8_KB;
-import static org.fim.util.FileUtil.byteCountToDisplaySize;
 import static org.mockito.Mockito.mock;
 
 @RunWith(Parameterized.class)
@@ -232,7 +231,7 @@ public class FileHasherTest extends StateAssert {
 
         assertFileHashEqualsTo(fileSize, expectedHash, fileHash);
     }
-
+/*
     private void displayFileHash(long fileSize, FileHash fileHash) {
         System.out.println("File " + byteCountToDisplaySize(fileSize));
         System.out.println("\tsmallBlockHash=" + fileHash.getSmallBlockHash());
@@ -240,7 +239,7 @@ public class FileHasherTest extends StateAssert {
         System.out.println("\tfullHash=" + fileHash.getFullHash());
         System.out.println("");
     }
-
+*/
     private void assertRangesEqualsTo(Range[] smallRanges, Range[] mediumRanges) {
         if (hashMode != dontHash) {
             BlockHasher smallBlockHasher = (BlockHasher) cut.getFrontHasher().getSmallBlockHasher();
