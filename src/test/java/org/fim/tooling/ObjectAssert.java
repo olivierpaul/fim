@@ -39,7 +39,7 @@ public class ObjectAssert {
         assertThat(a1.hashCode()).isNotEqualTo(b.hashCode());
     }
 
-    public static void compareIsWorking(Comparable a1, Comparable a2, Comparable b, Comparable c) {
+    public static <T extends Comparable<T>> void compareIsWorking(T a1, T a2, T b, T c) {
         assertThat(a1.compareTo(a2)).isEqualTo(0);
         assertThat(a2.compareTo(a1)).isEqualTo(0);
 
