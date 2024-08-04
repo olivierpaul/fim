@@ -33,8 +33,8 @@ public class JsonIO {
     private ObjectWriter objectWriter;
 
     public JsonIO() {
-        // All field names will be intern()ed
         JsonFactory jsonFactory = new JsonFactoryBuilder()
+        // All field names will be intern()ed
             .enable(JsonFactory.Feature.CANONICALIZE_FIELD_NAMES)
             .enable(JsonFactory.Feature.INTERN_FIELD_NAMES)
             .build();
