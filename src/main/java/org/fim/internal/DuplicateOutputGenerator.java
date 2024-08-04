@@ -50,6 +50,9 @@ public class DuplicateOutputGenerator {
             case json:
                 generateJson(duplicates);
                 break;
+            case human:
+                // TODO: Not covered
+                break;
         }
     }
 
@@ -88,7 +91,9 @@ public class DuplicateOutputGenerator {
     }
 
     private void generateCSV(List<DuplicatedFiles> duplicates) {
-        CSVFormat format = CSVFormat.DEFAULT.withHeader("SetIndex", "FileIndex", "WastedSpace", "FilePath", "FileName", "FileLength", "FileType");
+        CSVFormat format = CSVFormat.DEFAULT.builder()
+            .setHeader("SetIndex", "FileIndex", "WastedSpace", "FilePath", "FileName", "FileLength", "FileType")
+            .build();
         try (CSVPrinter csvPrinter = new CSVPrinter(Logger.out, format)) {
             int setIndex = 0;
             for (DuplicatedFiles files : duplicates) {

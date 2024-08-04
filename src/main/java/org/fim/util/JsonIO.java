@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonFactoryBuilder;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -32,11 +33,11 @@ public class JsonIO {
     private ObjectWriter objectWriter;
 
     public JsonIO() {
-        JsonFactory jsonFactory = new JsonFactory();
-
         // All field names will be intern()ed
-        jsonFactory.enable(JsonFactory.Feature.CANONICALIZE_FIELD_NAMES);
-        jsonFactory.enable(JsonFactory.Feature.INTERN_FIELD_NAMES);
+        JsonFactory jsonFactory = new JsonFactoryBuilder()
+            .enable(JsonFactory.Feature.CANONICALIZE_FIELD_NAMES)
+            .enable(JsonFactory.Feature.INTERN_FIELD_NAMES)
+            .build();
         jsonFactory.disable(JsonGenerator.Feature.AUTO_CLOSE_TARGET);
         objectMapper = new ObjectMapper(jsonFactory);
 
