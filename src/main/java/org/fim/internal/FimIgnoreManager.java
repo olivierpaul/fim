@@ -38,7 +38,7 @@ public class FimIgnoreManager {
     public static final String DOT_FIM_IGNORE = ".fimignore";
     public static final String ALL_DIRECTORIES_PATTERN = "**/";
 
-    public static final Set IGNORED_DIRECTORIES = new HashSet<>(Arrays.asList(Context.DOT_FIM_DIR, ".git", ".svn", ".cvs"));
+    public static final Set<String> IGNORED_DIRECTORIES = new HashSet<>(Arrays.asList(Context.DOT_FIM_DIR, ".git", ".svn", ".cvs"));
 
     private final Context context;
 
