@@ -48,11 +48,11 @@ public class RepositoryTool {
     private int fileCount;
     private Context context;
 
-    public RepositoryTool(Class testClass) throws IOException {
+    public RepositoryTool(Class<?> testClass) throws IOException {
         this(testClass, hashAll);
     }
 
-    public RepositoryTool(Class testClass, HashMode hashMode) throws IOException {
+    public RepositoryTool(Class<?> testClass, HashMode hashMode) throws IOException {
         String fileName = String.format("target/%s-%s", testClass.getSimpleName(), hashMode);
         rootDir = Paths.get(fileName);
         FileUtils.deleteDirectory(rootDir.toFile());
